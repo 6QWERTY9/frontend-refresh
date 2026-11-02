@@ -1,0 +1,32 @@
+/* Включаем правильную модель расчета ширины/высоты для всех элементов */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/* Убираем внешние и внутренние отступы у самых частых тегов */
+body, h1, h2, h3, h4, p, ul, ol, li, figure, figcaption, blockquote, dl, dd {
+    margin: 0;
+    padding: 0;
+}
+
+/* Настраиваем базовое поведение списков */
+ul, ol {
+    list-style: none;
+}
+
+/* Упрощаем работу с картинками */
+img, picture {
+    max-width: 100%;
+    display: block;
+}
+
+/* Наследуем шрифты для инпутов и кнопок */
+input, button, textarea, select {
+    font: inherit;
+}
+
+/* Убираем стандартное подчеркивание у ссылок */
+a {
+    text-decoration: none;
+    color: inherit;
+}
