@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles/reset.css">
     <link rel="stylesheet" href="./styles/styles.css">
-
+    <script src="./js/index.js" defer></script>
     <title>Todo list</title>
 </head>
 <body>
@@ -16,20 +16,15 @@
             </header>
             <div class="todo_list_display">
                 <div class="user_input_wrapper">
-                    <form action="">
+                    <form action="" method="post" class="todo_list_input_block">
                         <label class="terminal_prefix">guest@system_root:~$ </label>
                         
-                        <input type="text" name="" id="" class="user_input" placeholder="[SYSTEM_AWAITING_INPUT]...">
+                        <input type="text" class="user_input" placeholder="[SYSTEM_AWAITING_INPUT]...">
                     </form>
                 </div>
 
                 <ul class="todo_list_cards">
-                    <li class="todo_list_card">
-                        <div class="indicator"></div>
-                        <div class="user_text_wrapper">
-                            <span class="user_text">Wipe index.html data cache</span>
-                        </div>
-                    </li>
+                    
                 </ul>
 
                 

@@ -170,6 +170,15 @@ body {
     text-shadow: 0px 0px 5px var(--color-done-glow);
 }
 
+.card_number {
+    font-family: var(--basic-font);
+    font-size: var(--fs-text);
+
+    color: #00ff66;
+
+    text-shadow: 0px 0px 5px var(--color-done-glow);
+}
+
 form {
     margin: 10px;
     width: 100%;
@@ -210,7 +219,7 @@ form {
 
     vertical-align: middle;
 
-    padding: 3px 0px 0px 0px;
+    padding: 4px 0px 3px 0px;
 
     
     
@@ -220,6 +229,13 @@ form {
     font-size: var(--fs-input);
     color: #00ff66;
     text-shadow: 0px 0px 5px var(--color-done-glow);
+}
+
+.terminal_welcome {
+    font-family: var(--basic-font);
+    font-size: var(--fs-text);
+    color: var(--color-text-dim);
+    line-height: 1.6;
 }
 
 
