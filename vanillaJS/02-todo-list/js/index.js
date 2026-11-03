@@ -48,8 +48,6 @@ function render() {
     localStorage.setItem('terminal_tasks', JSON.stringify(tasks));
 }
 
-
-
 function addTask(userText) {
     if (!userText) return;
 
