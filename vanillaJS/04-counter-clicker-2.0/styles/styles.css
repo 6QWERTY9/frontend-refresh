@@ -140,6 +140,34 @@ body {
     color: var(--text-muted);
 }
 
+.btn_reset {
+    width: 100%;
+    background-color: transparent;
+    border: 1px dashed var(--text-muted);
+    color: var(--text-muted);
+    padding: 8px;
+    border-radius: var(--radius-btn);
+    font-family: 'Orbitron', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    cursor: pointer;
+    margin-top: 40px; /* Отрываем её пониже от основных цифр */
+    opacity: 0.5;
+    transition: all 0.2s;
+}
+
+.btn_reset:hover {
+    opacity: 1;
+    border: 1px solid #ff0055; /* Опасный красно-розовый неон */
+    color: #ff0055;
+    box-shadow: 0 0 10px rgba(255, 0, 85, 0.2);
+}
+
+.btn_reset:active {
+    transform: scale(0.98);
+}
+
 /* СТИЛИ КАРТОЧЕК В МАГАЗИНЕ (ПРАВАЯ КОЛОНКА) */
 .shop_card {
     background-color: #0d1322; /* Такой же глубокий стильный фон */
@@ -304,6 +332,37 @@ body {
 .bottom_right { bottom: 16px; right: 16px; border-left: none; border-top: none; }
 
 
+/* Элемент волны, который JavaScript создает динамически */
+.click_wave {
+    position: absolute;
+    background: rgba(0, 240, 255, 0.15); /* Полупрозрачный неоновый голубой цвет */
+    border: 2px solid var(--neon-cyan);   /* Яркая светящаяся граница круга */
+    border-radius: 50%;                  /* Превращаем элемент в идеальный круг */
+    pointer-events: none;                /* Чтобы волны не мешали кликать дальше сквозь них */
+    transform: translate(-50%, -50%);     /* Центрируем круг точно по кончику курсора мыши */
+    
+    /* Запускаем анимацию расширения на 0.4 секунды с плавным затуханием */
+    animation: ripple_effect 0.4s cubic-bezier(0.1, 0.8, 0.3, 1) forwards;
+}
+
+.column_clicker {
+    position: relative; /* Чтобы волны позиционировались строго внутри экрана */
+    overflow: hidden;    /* Критически важно: обрезает волны, чтобы они не вылезали за рамки монитора */
+}
+
+
+@keyframes ripple_effect {
+    0% {
+        width: 0px;
+        height: 0px;
+        opacity: 1;
+    }
+    100% {
+        width: 200px;  
+        height: 200px;
+        opacity: 0;    
+    }
+}
 
 /* ------------ */
 

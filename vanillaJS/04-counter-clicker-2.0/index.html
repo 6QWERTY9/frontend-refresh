@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles/styles.css">
     <link rel="stylesheet" href="styles/reset.css">
+    <script type="module" src="js/main.js"></script>
     <title>ByteClicker</title>
 </head>
 <body>
@@ -17,15 +18,17 @@
                 <aside class="column_stats">
                     <div class="balance_stats">
                         <h4 class="balance_stats_title">БАЛАНС:</h4>
-                        <span id="balance-display" class="balance_text" data-balance="0">0 очков</span>
+                        <span id="balance-display" class="balance_text" data-balance="0"></span>
                     </div>
 
                     <div class="passive-display_stats">
                         <h4 class="passive-display_title">В СЕКУНДУ:</h4>
-                        <span id="passive-display" class="passive-display" data-passive-display="0">+0 очков</span>
+                        <span id="passive-income-display" class="passive-display" data-passive-display="0"></span>
                     </div>
+
+                    <button id="reset-game-btn" class="btn_reset">СБРОСИТЬ ПРОГРЕСС</button>
                 </aside>
-                <div class="column_clicker">
+                <div class="column_clicker_wrapper">
                     <div id="click-zone" class="column_clicker">
                         <div class="screen_corner top_left"></div>
                         <div class="screen_corner top_right"></div>
@@ -38,26 +41,26 @@
                         <h3 class="shop_card_title">СИЛА КЛИКА</h3>
                         <div class="shop_card_stats">
                             <span class="shop_card_purchased">
-                                <span class="purchased" data-purchased="0">0 шт.</span>
+                                <span id='power-click-purchased-display' class="purchased" data-purchased="0"></span>
                             </span>
                             <span class="shop_card_price">
-                                <span class="price" id="click-price" data-price="0">0 очков</span>
+                                <span class="price" id="power-click-price-display" data-price="0"></span>
                             </span>
                         </div>
-                        <button id="buy-click-btn" class="btn_buy">Купить</button>
+                        <button id="buy-power-click-btn" class="btn_buy" disabled>Купить</button>
                     </div>
 
                     <div class="shop_card">
                         <h3 class="shop_card_title">АВТО-КЛИКЕР</h3>
                         <div class="shop_card_stats">
                             <span class="shop_card_purchased">
-                                <span class="purchased" data-purchased="0">0 шт.</span>
+                                <span id='auto-click-purchased-display' class="purchased" data-purchased="0"></span>
                             </span>
                             <span class="shop_card_price">
-                                <span class="price" id="click-price" data-price="0">0 очков</span>
+                                <span class="price" id="auto-click-price-display" data-price="0"></span>
                             </span>
                         </div>
-                        <button id="buy-click-btn" class="btn_buy">Купить</button>
+                        <button id="buy-auto-click-btn" class="btn_buy" disabled>Купить</button>
                     </div>
                 </aside>
             </div>
