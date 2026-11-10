@@ -1,0 +1,310 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+    /*ЦВЕТОВАЯ ПАЛИТРА (НЕОН / КИБЕРПАНК)*/
+    --bg-main: #0b0f19;      /* Глубокий темный фон всей страницы */
+    --bg-card: #151d30;      /* Фон для главных панелей и карточек магазина */
+    --neon-cyan: #00f0ff;    /* Ярко-голубой неон для акцентов, цифр и главного клика */
+    --neon-green: #39ff14;   /* Неоново-зеленый для кнопок покупки в магазине */
+    --text-main: #ffffff;    /* Основной белый текст для важных заголовков и значений */
+    --text-muted: #8a99ad;   /* Приглушенный серый для подписей, единиц измерения и цен */
+
+    /* РАЗМЕРЫ БЛОКОВ И СЕТКА (ЖЕСТКО ДЛЯ ПК)*/
+    --container-width: 1200px; /* Общая фиксированная ширина игровой зоны */
+    --panel-height: 500px;     /* Одинаковая фиксированная высота всех трех панелей */
+    --column-gap: 30px;        /* Зазор между тремя колонками */
+    
+    /* Точные ширины колонок в пикселях */
+    --width-col-stats: 300px;  /* Ширина левой панели статистики */
+    --width-col-click: 500px;  /* Ширина центральной зоны кликера */
+    --width-col-shop: 340px;   /* Ширина правой панели магазина */
+
+    /* Главная круглая кнопка клика */
+    --click-btn-size: 260px;   /* Ширина и высота кнопки КЛИК */
+
+    /* ОТСТУПЫ И СКРУГЛЕНИЯ (SPACING)*/
+    --panel-padding: 24px;     /* Внутренние отступы внутри главных панелей */
+    --card-padding: 16px;      /* Внутренние отступы внутри карточек товаров */
+    
+    --radius-panel: 12px;      /* Скругление углов для трех главных панелей */
+    --radius-card: 8px;        /* Скругление углов для карточек магазина и стат-боксов */
+    --radius-btn: 6px;         /* Скругление углов для кнопок покупки "Купить" */
+
+    /* ТИПОГРАФИКА И ШРИФТЫ (FONT SIZES) */
+
+    /* Главные цифровые/игровые шрифты (Orbitron) */
+    --fs-h1: 32px;             /* Размер главного названия игры в шапке */
+    --fs-h2: 20px;             /* Размер заголовков "Статистика" и "Магазин" */
+    --fs-counter: 24px;        /* Размер больших цифр баланса и дохода в секунду */
+
+    /* Вспомогательные текстовые шрифты (Inter) */
+    --fs-title-card: 16px;     /* Названия товаров в магазине ("Сила клика" и др.) */
+    --fs-btn-text: 14px;       /* Текст на кнопках покупки */
+    --fs-muted-text: 13px;     /* Цены, счетчики купленного количества и единицы очков */
+    --fs-label-text: 12px; 
+    
+    --orbitron-font: "Orbitron", sans-serif; /* Маленькие верхние подписи "Баланс:" и "В секунду:" */
+    --roboto-font: "Roboto", sans-serif;
+}
+
+body {
+    background-color: var(--bg-main);
+    overflow: hidden;
+
+
+
+    width: 100vw;
+    height: 100vh;
+}
+
+.page_wrapper {
+    
+    width: 90%;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    gap: var(--column-gap);
+}
+/* header styles */
+.game_header {
+    width: 100%;
+    height: 100px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.game_header_title {
+    font-family: var(--orbitron-font);
+
+    font-size: var(--fs-h1);
+    color: var(--text-main);
+}
+/* --------------- */
+
+/* main styles */
+.game_main {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+}
+
+.columns_container {
+    width: var(--container-width);
+    height: 100%;
+
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    column-gap: 30px;
+    
+}
+
+.column_stats, .column_clicker, .column_shop {
+    height: var(--panel-height);
+}
+
+.column_stats, .column_shop {
+    width: 100%;
+    
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+/* 📊 СТИЛИ БОКСОВ СТАТИСТИКИ (ЛЕВАЯ КОЛОНКА) */
+.balance_stats, .passive-display_stats {
+    background-color: #0d1322; /* Очень темный синий фон, контрастный к общей странице */
+    border: 1px solid rgba(0, 240, 255, 0.15); /* Тонкая неоновая рамка */
+    padding: 16px;
+    border-radius: var(--radius-card); /* Скругление 8px */
+    margin-bottom: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3), inset 0 0 10px rgba(0, 240, 255, 0.02);
+    border-left: 4px solid var(--neon-cyan); /* Яркий маркер слева */
+}
+
+.passive-display_title, .balance_stats_title {
+    font-family: var(--roboto-font);
+    font-size: var(--fs-h2-text);
+    color: var(--text-main);
+}
+
+.balance_text, .passive-display {
+    font-family: var(--orbitron-font);
+    font-size: 14px;
+    color: var(--text-muted);
+}
+
+/* СТИЛИ КАРТОЧЕК В МАГАЗИНЕ (ПРАВАЯ КОЛОНКА) */
+.shop_card {
+    background-color: #0d1322; /* Такой же глубокий стильный фон */
+    border: 1px solid rgba(255, 255, 255, 0.05); /* Аккуратная почти прозрачная рамка */
+    border-radius: var(--radius-card); /* Скругление 8px */
+    padding: var(--card-padding); /* Внутренние отступы 16px */
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column; /* Элементы внутри карточки идут сверху вниз */
+    gap: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+/* Эффект при наведении на карточку товара */
+.shop_card:hover {
+    border-color: rgba(0, 240, 255, 0.2); /* Рамка начинает слегка светиться */
+    box-shadow: 0 4px 20px rgba(0, 240, 255, 0.05);
+}
+
+/* Заголовок внутри карточки (Название товара + SVG) */
+.shop_card_title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: var(--fs-title-card); /* 16px */
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Расстояние между SVG-иконкой и текстом */
+    color: var(--text-main);
+    letter-spacing: 1px;
+}
+
+/* Контейнер со значениями "Куплено" и "Цена" */
+.shop_card_stats {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: var(--fs-muted-text); /* 13px */
+    color: var(--text-muted);
+}
+
+/* Кнопка «Купить» внутри карточки */
+.btn_buy {
+    width: 100%;
+    background-color: transparent;
+    border: 2px solid var(--neon-green); /* Неоново-зеленая рамка */
+    color: var(--neon-green);
+    padding: 10px;
+    border-radius: var(--radius-btn); /* Скругление 6px */
+    font-family: 'Inter', sans-serif;
+    font-size: var(--fs-btn-text); /* 14px */
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.15s, color 0.15s, box-shadow 0.15s;
+}
+
+/* Когда кнопка активна и на неё наводят курсор */
+.btn_buy:hover:not(:disabled) {
+    background-color: var(--neon-green);
+    color: var(--bg-main); /* Текст становится темным на зеленом фоне */
+    box-shadow: 0 0 15px rgba(57, 255, 20, 0.4);
+}
+
+/* Когда у игрока НЕ хватает байтов на покупку (disabled) */
+.btn_buy:disabled {
+    border-color: var(--text-muted);
+    color: var(--text-muted);
+    opacity: 0.25;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+
+
+
+/* 🖥️ ЦЕНТРАЛЬНЫЙ ЭКРАН-КЛИКЕР */
+.column_clicker {
+    width: var(--width-col-click); /* 500px */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; /* Важно для позиционирования углов и волн */
+    overflow: hidden;    /* Прячет волны, когда они вылетают за края экрана */
+    cursor: pointer;
+    
+    /* Эффект стеклянного игрового монитора с неоновым свечением */
+    background: radial-gradient(circle, #1a243a 0%, #090d16 100%);
+    border: 2px solid rgba(0, 240, 255, 0.15);
+    box-shadow: 0 0 25px rgba(0, 240, 255, 0.05), inset 0 0 40px rgba(0, 240, 255, 0.1);
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+/* При наведении мышки экран начинает светиться ярче */
+.column_clicker:hover {
+    border-color: rgba(0, 240, 255, 0.4);
+    box-shadow: 0 0 35px rgba(0, 240, 255, 0.15), inset 0 0 50px rgba(0, 240, 255, 0.15);
+}
+
+/* Эффект сетки пикселей (CRT-монитор) */
+.column_clicker::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.3) 50%), 
+                linear-gradient(90deg, rgba(0, 240, 255, 0.03), rgba(0, 0, 0, 0), rgba(0, 240, 255, 0.03));
+    background-size: 100% 4px, 6px 100%;
+    pointer-events: none; /* Клик проходит сквозь сетку */
+    opacity: 0.6;
+    z-index: 2;
+}
+
+/* ✨ ЦЕНТРАЛЬНОЕ СВЕТЯЩЕЕСЯ ЯДРО (ИКОНКА + ТЕКСТ) */
+.click_core {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    color: var(--neon-cyan);
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 800;
+    font-size: 18px;
+    letter-spacing: 2px;
+    pointer-events: none; /* Чтобы клик регистрировался на самом экране, а не на тексте */
+    user-select: none;
+    z-index: 3; /* Поверх сетки пикселей */
+    text-shadow: 0 0 15px rgba(0, 240, 255, 0.6);
+    transition: transform 0.05s, text-shadow 0.05s;
+}
+
+/* Плавная пульсация иконки (эффект ожидания действия) */
+.click_core svg {
+    filter: drop-shadow(0 0 10px var(--neon-cyan));
+    animation: core_pulse 2s infinite ease-in-out;
+}
+
+@keyframes core_pulse {
+    0% { transform: scale(1); filter: drop-shadow(0 0 8px var(--neon-cyan)); }
+    50% { transform: scale(1.08); filter: drop-shadow(0 0 18px var(--neon-cyan)); }
+    100% { transform: scale(1); filter: drop-shadow(0 0 8px var(--neon-cyan)); }
+}
+
+/* Мощный физический отклик — ядро сжимается в момент самого клика */
+.column_clicker:active .click_core {
+    transform: scale(0.92);
+    text-shadow: 0 0 8px rgba(0, 240, 255, 0.9);
+}
+
+/* 📐 ДЕКОРАТИВНЫЕ ХАКЕРСКИЕ УГЛЫ МОНИТОРА */
+.screen_corner {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border: 2px solid var(--neon-cyan);
+    pointer-events: none;
+    z-index: 4;
+    opacity: 0.7;
+    filter: drop-shadow(0 0 3px var(--neon-cyan));
+}
+.top_left     { top: 16px; left: 16px; border-right: none; border-bottom: none; }
+.top_right    { top: 16px; right: 16px; border-left: none; border-bottom: none; }
+.bottom_left  { bottom: 16px; left: 16px; border-right: none; border-top: none; }
+.bottom_right { bottom: 16px; right: 16px; border-left: none; border-top: none; }
+
+
+
+/* ------------ */
+
+

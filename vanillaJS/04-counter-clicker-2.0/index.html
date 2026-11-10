@@ -1,13 +1,67 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles/styles.css">
     <link rel="stylesheet" href="styles/reset.css">
-    <title></title>
+    <title>ByteClicker</title>
 </head>
 <body>
-    
+    <div class="page_wrapper">
+        <header class="game_header">
+            <h1 class="game_header_title">ByteClicker</h1>
+        </header>
+        <main class="game_main">
+            <div class="columns_container">
+                <aside class="column_stats">
+                    <div class="balance_stats">
+                        <h4 class="balance_stats_title">БАЛАНС:</h4>
+                        <span id="balance-display" class="balance_text" data-balance="0">0 очков</span>
+                    </div>
+
+                    <div class="passive-display_stats">
+                        <h4 class="passive-display_title">В СЕКУНДУ:</h4>
+                        <span id="passive-display" class="passive-display" data-passive-display="0">+0 очков</span>
+                    </div>
+                </aside>
+                <div class="column_clicker">
+                    <div id="click-zone" class="column_clicker">
+                        <div class="screen_corner top_left"></div>
+                        <div class="screen_corner top_right"></div>
+                        <div class="screen_corner bottom_left"></div>
+                        <div class="screen_corner bottom_right"></div>
+                    </div>
+                </div>
+                <aside class="column_shop">
+                    <div class="shop_card">
+                        <h3 class="shop_card_title">СИЛА КЛИКА</h3>
+                        <div class="shop_card_stats">
+                            <span class="shop_card_purchased">
+                                <span class="purchased" data-purchased="0">0 шт.</span>
+                            </span>
+                            <span class="shop_card_price">
+                                <span class="price" id="click-price" data-price="0">0 очков</span>
+                            </span>
+                        </div>
+                        <button id="buy-click-btn" class="btn_buy">Купить</button>
+                    </div>
+
+                    <div class="shop_card">
+                        <h3 class="shop_card_title">АВТО-КЛИКЕР</h3>
+                        <div class="shop_card_stats">
+                            <span class="shop_card_purchased">
+                                <span class="purchased" data-purchased="0">0 шт.</span>
+                            </span>
+                            <span class="shop_card_price">
+                                <span class="price" id="click-price" data-price="0">0 очков</span>
+                            </span>
+                        </div>
+                        <button id="buy-click-btn" class="btn_buy">Купить</button>
+                    </div>
+                </aside>
+            </div>
+        </main>
+    </div>
 </body>
 </html>
